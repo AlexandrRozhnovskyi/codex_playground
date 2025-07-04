@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Landing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+        }
+        input, button, textarea {
+            padding: 8px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: none;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <input id="numberInput" type="text" placeholder="Введіть цифри" />
+    <button id="showButton">Показати</button>
+    <textarea id="output" readonly></textarea>
+
+    <script>
+        const numberInput = document.getElementById('numberInput');
+        const output = document.getElementById('output');
+        const button = document.getElementById('showButton');
+
+        numberInput.addEventListener('input', () => {
+            numberInput.value = numberInput.value.replace(/\D+/g, '');
+        });
+
+        button.addEventListener('click', () => {
+            output.value = numberInput.value;
+        });
+    </script>
+</body>
+</html>
